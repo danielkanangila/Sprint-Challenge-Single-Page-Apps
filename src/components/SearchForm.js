@@ -16,8 +16,7 @@ export default function SearchForm(props) {
 
   const handleChange = e => {
     setQuery(e.target.value)
-
-    props.filter(e.target.value);
+    props.onSearch(e.target.value);
   }
 
   return (

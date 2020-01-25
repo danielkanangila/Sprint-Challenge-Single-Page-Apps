@@ -23,16 +23,23 @@ export default function CharacterList() {
     .catch(error => console.error(error));
   }, []);
 
-  const filter = query =>{
-    console.log(query);
+  const onSearch = query =>{
     if (query) {
-      const newCharacterLis =  characterList.filter(character => character.name.includes(query));
-      setCharacterList(newCharacterLis)
-    }
+      Axios.get(`https://rickandmortyapi.com/api/character/?name=${query}`)
+      .then(response => {
+        setCharacterList(response.data.results)
+      })
+      .catch(error => console.error(error));
+    } 
   }
+
+  const fetchInitialData = () => {
+    
+  }
+
   return (
     <section className="character-list">
-      <SearchForm filter={filter} />
+      <SearchForm onSearch={onSearch} />
       <GridView>
         {characterList.map((character) => <CharacterCard key={character.id} {...character} />)}
       </GridView>
