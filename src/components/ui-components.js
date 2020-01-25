@@ -32,7 +32,6 @@ export const Logo  = styled.h1`
 
 export const GridView = styled.div`
     display: flex;
-    display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 `
@@ -40,5 +39,30 @@ export const GridView = styled.div`
 export const Card = styled.div`
     display: block;
     width: 100%;
-    box-shadow: 1px 1px 1px #ccc;
+    box-shadow:  0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    transition: 0.3s;
+    border-radius: 5px;
+    padding-bottom: 20px;
+
+    @media (min-width: 600px) {
+        width: 46%;
+        margin-bottom: 3%;
+    }
+    @media (min-width: 1024px) {
+        width: 30%;
+        margin-bottom: 3%;
+    }
+
+    img {
+        width: 100%;
+    }
+`
+export const CardImage = styled.img`
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+`
+
+export const CardTextContent = styled.div`
+    padding: 0 15px;
 `
