@@ -3,6 +3,7 @@ import Axios from "axios";
 import CharacterCard from './CharacterCard';
 import { GridView } from "./ui-components";
 import styled from 'styled-components';
+import SearchForm from './SearchForm';
 
 const Title = styled.h1`
 
@@ -18,15 +19,22 @@ export default function CharacterList() {
     Axios.get('https://rickandmortyapi.com/api/character/')
     .then(response => {
       setCharacterList(response.data.results)
-      console.log(response.data)
     })  
     .catch(error => console.error(error));
   }, []);
 
+  const filter = query =>{
+    console.log(query);
+    if (query) {
+      const newCharacterLis =  characterList.filter(character => character.name.includes(query));
+      setCharacterList(newCharacterLis)
+    }
+  }
   return (
     <section className="character-list">
+      <SearchForm filter={filter} />
       <GridView>
-        {characterList.map(character => <CharacterCard {...character} />)}
+        {characterList.map((character) => <CharacterCard key={character.id} {...character} />)}
       </GridView>
     </section>
   );

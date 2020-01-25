@@ -32,11 +32,6 @@ const MenuText = styled.span`
     text-transform: uppercase;
 `
 
-const UserIcon = styled.i`
-    color: inherit;
-    font-size: 1.2rem;
-`
-
 const styles = {
     container: {
         flexDirection: 'row',

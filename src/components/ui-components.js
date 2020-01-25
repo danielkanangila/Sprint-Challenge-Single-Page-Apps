@@ -65,4 +65,29 @@ export const CardImage = styled.img`
 
 export const CardTextContent = styled.div`
     padding: 0 15px;
-`
+`;
+
+export const TextField = styled.input`
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    :focus {
+        border: 2px solid #339AF0;
+    }
+`; 
+
+export const TextFieldWrapper = styled.div`
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    margin-bottom: 30px;
+`;
+
+export const Label = styled.label`
+    display: block;
+    padding: 15px 0px 1px 5px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+
+`;
