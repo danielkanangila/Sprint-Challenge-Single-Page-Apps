@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Logo } from './ui-components';
+import { NavLink } from 'react-router-dom';
 
 const Wrapper = styled.div`
     position: fixed;
@@ -11,17 +12,24 @@ const Wrapper = styled.div`
     box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 `
 
-const MenuItemIcon = styled.a`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: rgba(0,0,0,0.5);
-    padding: 20px 10px;
-    transition: all .3s;
+const MenuItemIcon = styled.div`
 
-    :hover {
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: rgba(0,0,0,0.5);
+        padding: 20px 10px;
+        transition: all .3s;
+    
+        :hover {
+            background: #ccc;
+            color: #000;
+        }
+    }
+    a.active {
         background: #ccc;
         color: #000;
     }
@@ -56,15 +64,19 @@ const AppBar = () => {
                     Rick&amp;Morty
                 </Logo>
                 <div style={classes.rightItems}>    
-                    <MenuItemIcon href="/">
-                        <MenuText>
-                            Home
-                        </MenuText>
+                    <MenuItemIcon>
+                        <NavLink exact activeClassName="active" to="/">
+                            <MenuText>
+                                Home
+                            </MenuText>
+                        </NavLink>
                     </MenuItemIcon>
-                    <MenuItemIcon href="/character-list">
-                        <MenuText>
-                            Characters
-                        </MenuText>
+                    <MenuItemIcon>
+                        <NavLink activeClassName="active" to="/character-list">
+                            <MenuText>
+                                Characters
+                            </MenuText>
+                        </NavLink>
                     </MenuItemIcon>
                 </div>
             </Container>
