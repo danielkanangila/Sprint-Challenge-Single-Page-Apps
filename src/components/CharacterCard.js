@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardImage, CardTextContent } from './ui-components'
+import Header from './Header';
 import styled from "styled-components";
 
 const Title = styled.span`
@@ -29,6 +30,7 @@ const P = styled.p`
 
 export default function CharacterCard({name, gender, status, image}) {
   return(
+
     <Card>
       <CardImage src={image} />
       <CardTextContent>

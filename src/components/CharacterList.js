@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import CharacterCard from './CharacterCard';
 import { GridView } from "./ui-components";
+import styled from 'styled-components';
+
+const Title = styled.h1`
+
+`
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
